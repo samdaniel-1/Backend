@@ -95,4 +95,4 @@ app.get("/deleted/:id",(req,res)=>{
     })
 })
 
-app.listen(process.env.Port,()=>console.log("The server is running in the localhost",port))
+app.listen(process.env.PORT,()=>console.log("The server is running in the localhost",port))
