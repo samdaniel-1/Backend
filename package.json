@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "Yellow_owl",
-    "start": "nodemon index.js",
-    "build": "npm run build"
+    "start": "nodemon index.js"
 
   },
   "keywords": [],
