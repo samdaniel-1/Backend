@@ -11,7 +11,14 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`
-const db = mysql.createConnection(process.env.MYSQL_URL)
+const db = mysql.createConnection({
+    host:process.env.MYSQLHOST,
+    port:process.env.MYSQLPORT,
+    user:process.env.MYSQLUSER,
+    password:process.env.MYSQLPASSWORD,
+    database:process.env.MYSQLDATABASE
+    
+})
 
 db.connect((err,res)=>{
     if(err){
@@ -88,4 +95,4 @@ app.get("/deleted/:id",(req,res)=>{
     })
 })
 
-app.listen(process.env.Port || port,()=>console.log("The server is running in the localhost",port))
+app.listen(process.env.Port,()=>console.log("The server is running in the localhost",port))
